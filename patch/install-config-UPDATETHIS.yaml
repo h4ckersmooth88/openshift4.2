@@ -1,0 +1,40 @@
+apiVersion: v1
+baseDomain: example.com 
+compute:
+- hyperthreading: Enabled   
+  name: worker
+  replicas: 0 
+controlPlane:
+  hyperthreading: Enabled   
+  name: master 
+  replicas: 3 
+metadata:
+  name: ocp4poc 
+networking:
+  clusterNetworks:
+  - cidr: 10.128.0.0/14 
+    hostPrefix: 23 
+  networkType: OpenShiftSDN
+  serviceNetwork: 
+  - 172.30.0.0/16
+platform:
+  none: {}
+sshKey: 'ssh-ed25519 AAAA...' 
+pullSecret: '{"auths": ...}' 
+# pullSecret: '{"auths":{"<bastion_host_name>:5000": {"auth": "<credentials>","email": "you@example.com"}}}'
+# proxy:
+#   httpProxy: http://<username>:<pswd>@<ip>:<port> 
+#   httpsProxy: http://<username>:<pswd>@<ip>:<port> 
+#   noProxy: example.com 
+# additionalTrustBundle: | 
+#   -----BEGIN CERTIFICATE-----
+#   ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+#   -----END CERTIFICATE-----
+# Record the imageContentSources section from the output of the ./poc mirror command. 
+# imageContentSources: 
+# - mirrors:
+#   - <bastion_host_name>:5000/<repo_name>/release
+#   source: quay.io/openshift-release-dev/ocp-release
+# - mirrors:
+#   - <bastion_host_name>:5000/<repo_name>/release
+#   source: registry.svc.ci.openshift.org/ocp/release

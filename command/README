@@ -1,0 +1,31 @@
+IMPORTANT COMMAND:
+
+Create the installation manifests
+1. openshift-install create manifests
+
+Prevent Pods from being scheduled on the control plane machines
+2. sed -i 's/mastersSchedulable: true/mastersSchedulable: false/g' manifests/cluster-scheduler-02-config.yml
+
+Generate ignition configs
+3.openshift-install create ignition-configs
+
+Monitoring Bootstrap
+4. openshift-install wait-for bootstrap-complete --log-level debug
+
+Want to access openshift with commandline
+5. export KUBECONFIG=/<PATH INSTALL IGNITION>/auth/kubeconfig
+
+Setup Storage -> not use PV
+6. oc patch configs.imageregistry.operator.openshift.io cluster --type merge --patch '{"spec":{"storage":{"emptyDir":{}}}}'
+
+See the request certification
+7.watch oc get csr
+
+Approve with one shot
+8. oc get csr --no-headers | awk '{print $1}' | xargs oc adm certificate approve
+
+Checking installation is complete
+9. openshift-install wait-for install-complete
+
+If you want upgrade the latest version in Openshift 4.2.X
+10. oc adm upgrade --to-latest=true
