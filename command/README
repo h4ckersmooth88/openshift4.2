@@ -1,6 +1,8 @@
 Please Prepare Virtual Machine.. For me i use Virtual Box
 
-Requirement :
+============================================================================================
+Requirement for POC Openshift 4.2 + Rook-Ceph :
+WARNING : Please make sure the spec is same and size memory is very important.. Don't set Memory under 12 GB for Cluster Openshift 4.2
 
 1. Master = 1 ( vCPU = 4, Memory = 12 GB, Harddisk = 100 GB )
 2. Worker = 4 (vCPU = 4, Memory = 12 GB, Harddisk 1 = 100 GB, Harddisk 2 = 200 GB )
@@ -8,6 +10,17 @@ Requirement :
 3. Bootstrap = 1 (vCPU = 4, Memory = 12 GB, Harddisk = 100 GB )
 4. Helper = 1 ( vCPU = 4 , Memory = 6 GB, Harddisk = 100 GB )
 
+Network Requirement :
+
+1. Master, Worker and Bootstrap : 1 NIC ( Host-only ), Please make sure not DHCP Server in this Connection.
+  - Host-only ( 10.10.10.0/24 ) - PLEASE CLEAR NOT DHCP SERVER IN THIS NETWORK
+2. Helper : 2 NIC (1 NIC for External, 1 NIC for Host-only)
+  - External ( 192.168.1.0/24 ) - INTERNET ACCESS
+  - Host-only ( 10.10.10.0/24 ) - PLEASE CLEAR NOT DHCP SERVER IN THIS NETWORK
+  
+
+
+=============================================================================================
 
 IMPORTANT COMMAND:
 
