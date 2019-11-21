@@ -1,4 +1,10 @@
 setenforce 0
+echo "net.ipv4.conf.default.rp_filter = 2" >> /etc/sysctl.conf 
+echo "net.ipv4.conf.all.rp_filter = 2" >> /etc/sysctl.conf 
+
+echo 2 > /proc/sys/net/ipv4/conf/default/rp_filter
+echo 2 > /proc/sys/net/ipv4/conf/all/rp_filter
+
 firewall-cmd --zone=public   --change-interface=enp0s3 --permanent
 firewall-cmd --zone=internal --change-interface=enp0s8 --permanent
 
