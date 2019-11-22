@@ -268,12 +268,18 @@ Create the installation manifests : ( Please make sure execute command openshift
 
 NOTE: please make sure Work Directory to create manifest and ignition config in /root/ocp4poc
 
+```
 root@helper# mkdir /root/ocp4poc/
 root@helper# cd /root/ocp4poc/
+```
 
-Please insert the credential :
+Please insert the credential : ( Sample you can check in openshift4.2/patch/install-config-UPDATETHIS.yaml)
 
+```
 root@helper# cat install-config.yaml
+```
+
+
 
 ```
 apiVersion: v1
