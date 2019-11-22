@@ -268,11 +268,12 @@ Create the installation manifests : ( Please make sure execute command openshift
 
 NOTE: please make sure Work Directory to create manifest and ignition config in /root/ocp4poc
 
-```
 root@helper# mkdir /root/ocp4poc/
 root@helper# cd /root/ocp4poc/
+
+
+
 root@helper# openshift-install create manifests
-```
 
 Prevent Pods from being scheduled on the control plane machines
 
@@ -555,7 +556,7 @@ pvc-d7d0d78b-0b83-11ea-a58   1Gi        RWO            Delete           Bound   
 
 ​            
 
-#### CHAPTER 10. Deploy Application using CephFS Volume
+## CHAPTER 12. Deploy Application using CephFS Volume
 
 A shared filesystem can be mounted with read/write permission from  multiple pods. This may be useful for applications which can be  clustered using a shared filesystem. 
 
@@ -587,7 +588,7 @@ root@helper@ oc create -f pod-cephfs.yaml
 
 
 
-## CHAPTER 12. Configuration Object Storage Ceph
+## CHAPTER 13. Configuration Object Storage Ceph
 
 Object storage exposes an S3 API to the storage cluster for applications to put and get data.
 
