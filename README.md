@@ -414,15 +414,20 @@ In this lab you will be using OpenShift  Container Platform (OCP) 4.2 and Rook t
 
 In this section you will be using the new worker OCP nodes created in last section along with Rook image and configuration files. You will download files **common.yaml**, **operator-openshift.yaml**, **cluster.yaml** and **toolbox.yaml** to create Rook and Ceph resources 
 
+```
 root@helper# export KUBECONFIG=/root/ocp4poc/auth/kubeconfig
+```
 
 
 
 The first step to deploy Rook is to create the common resources. The configuration for these resources will be the same for most deployments. The **common.yaml** sets these resources up. 
 
+```
 root@helper# cd openshift4.2/cephtools
 
 root@helper# oc create -f common.yaml
+
+```
 
 
 
