@@ -271,9 +271,46 @@ NOTE: please make sure Work Directory to create manifest and ignition config in 
 root@helper# mkdir /root/ocp4poc/
 root@helper# cd /root/ocp4poc/
 
+Please insert the credential :
 
+root@helper# cat install-config.yaml
 
+```
+apiVersion: v1
+baseDomain: example.com
+compute:
+- hyperthreading: Enabled
+  name: worker
+  replicas: 0
+controlPlane:
+  hyperthreading: Enabled
+  name: master
+  replicas: 1
+metadata:
+  name: ocp4poc
+networking:
+  clusterNetworks:
+  - cidr: 10.254.0.0/16
+    hostPrefix: 24
+  networkType: OpenShiftSDN
+  serviceNetwork:
+  - 172.30.0.0/16
+platform:
+  none: {}
+pullSecret: '{"auths": ...}' <<- INSERT YOUR Secret in web cloud.redhat.com
+sshKey: 'ssh-ed25519 AAAA...' <<-- insert ssh Pub
+EOF
+```
+
+```
+root@helper# cp install-config.yaml /root/ocp4poc/
+```
+
+Please make sure install-config.yaml in /root/ocp4poc/ directory
+
+```
 root@helper# openshift-install create manifests
+```
 
 Prevent Pods from being scheduled on the control plane machines
 
