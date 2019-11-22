@@ -408,7 +408,7 @@ root@helper# openshift-install wait-for install-complete
 
  ![Showing OCS4 pods](https://github.com/red-hat-storage/ocs-training/raw/master/ocp4ocs4/imgs/OCS-Pods-Diagram.png) 
 
- ![rook diagram 3](http://admin-labguides.6923.rh-us-east-1.openshiftapps.com/workshop/ocp-for-admins/asset/images/rook_diagram_3.png) 
+ ![rook diagram 3](https://raw.githubusercontent.com/h4ckersmooth88/openshift4.2/master/rook_diagram_3.png) 
 
 In this lab you will be using OpenShift  Container Platform (OCP) 4.2 and Rook to deploy Ceph as a persistent  storage solution for OCP workloads. 
 
