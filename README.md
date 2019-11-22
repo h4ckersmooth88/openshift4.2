@@ -2,7 +2,7 @@
 
 
 
-## CHAPTER 1. Requirement for POC Openshift 4.2 + Rook-Ceph (VirtualBox or KVM)
+## CHAPTER 1. Requirement for POC Openshift 4.2 + Rook-Ceph (VirtualBox)
 
 > **WARNING :** Please make sure the spec is same and size memory is very important.. Don't set Memory under 12 GB for Cluster Openshift 4.2
 
@@ -587,7 +587,7 @@ root@helper@ oc create -f pod-cephfs.yaml
 
 
 
-#### CHAPTER 11. Configuration Object Storage Ceph
+## CHAPTER 12. Configuration Object Storage Ceph
 
 Object storage exposes an S3 API to the storage cluster for applications to put and get data.
 
@@ -669,4 +669,6 @@ Your Ceph S3 service is not internet accessible
 ```
 root@localhost# curl rook-ceph-rgw-my-store-rook-ceph.apps.ocp4poc.example.com
 ```
+
+
 
